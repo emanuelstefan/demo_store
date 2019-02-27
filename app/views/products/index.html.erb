@@ -1,0 +1,13 @@
+<% if @products.any?  %>
+  <ul>
+    <% @products.each do |prod|  %>
+      <li class="card-panel #dcedc8 light-green lighten-4"> <%= "#{prod.name}" %>
+        <div class="right">
+          <%= "#{prod.price}$" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <div class="card-panel #fbe9e7 deep-orange lighten-5">No products</div>
+<% end %>
