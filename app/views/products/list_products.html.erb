@@ -1,7 +1,12 @@
 <% if @products.any?  %>
+  <div class="row">
+    <div class="right card-panel #e0f7fa cyan lighten-5">
+      <%= "Total products in list: #{@products.count}" %>
+    </div>
+  </div>
   <ul>
     <% @products.each do |prod|  %>
-      <li class="card-panel #dcedc8 light-green lighten-4"> <%= "#{prod.name}" %>
+      <li class="card-panel #dcedc8 light-green lighten-4"> <%= "#{prod.name} (id: #{prod.id})" %>
         <div class="right">
           <%= "#{prod.price}$" %>
         </div>

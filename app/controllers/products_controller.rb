@@ -2,48 +2,41 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all.order("created_at DESC")
 
+    render json: { products: @products }
+  end
+
+  def list_products
+    @products = Product.all.order("created_at DESC")
+
     respond_to do |format|
       format.html
-      format.json { render json: { products: @products } }
     end
   end
 
   def show
     @product = Product.find(params[:id])
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @product }
-    end
+    render json: @product
   end
 
   def edit
     @product = Product.find(params[:id])
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @product }
-    end
+    render json: @product
   end
 
   def update
     @product = Product.find(params[:id])
     @product.update(product_params)
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @product }
-    end
+    render json: @product
   end
 
   def delete
     @product = Product.find(params[:id])
     @product.delete
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @product }
-    end
+    render json: @product
   end
 
   private
