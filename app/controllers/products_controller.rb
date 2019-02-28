@@ -42,8 +42,6 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find_by(id: params[:id])
 
-    return render json: {message: "invalid or missing params"} if params_missing?
-
     if @product.blank?
       return render json: { message: "product not found" }, status: 404
     else
